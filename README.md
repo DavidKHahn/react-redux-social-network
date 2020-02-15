@@ -1,10 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Client Side Packages Used:
+
+## npm i axios react-router-dom redux react-redux redux-thunk redux-devtools-extension moment react-moment
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm run dev`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
