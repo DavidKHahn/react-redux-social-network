@@ -3,6 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## NPM Packages Used:
 
 `npm i axios react-router-dom redux react-redux redux-thunk redux-devtools-extension moment react-moment` (Client Side)
+
 `npm i express express-validator bcryptjs config gravatar jsonwebtoken mongoose request` (Backend Side)
 
 In the project directory, you can run:
