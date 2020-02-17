@@ -5,9 +5,11 @@ import { loadUser } from './actions/auth';
 import './App.css';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import Dashboard from './components/dashboard/Dashboard';
 import Alert from './components/layout/Alert';
 import Landing from './components/layout/Landing';
 import Navbar from './components/layout/Navbar';
+import PrivateRoute from './components/routing/PrivateRoute';
 import store from './store';
 import setAuthToken from './utils/setAuthToken';
 
@@ -32,6 +34,7 @@ const App = () => {
           <Switch>
             <Route exact path='/register' component={Register} />
             <Route exact path='/login' component={Login} />
+            <PrivateRoute exact path='/dashboard' component={Dashboard} />
           </Switch>
         </section>
       </Fragment>
