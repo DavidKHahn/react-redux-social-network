@@ -1,6 +1,7 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { loadUser } from './actions/auth';
 import './App.css';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
@@ -8,8 +9,19 @@ import Alert from './components/layout/Alert';
 import Landing from './components/layout/Landing';
 import Navbar from './components/layout/Navbar';
 import store from './store';
+import setAuthToken from './utils/setAuthToken';
 
-const App = () => (
+if(localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
+const App = () => {
+  // when state updates 'useEffect' will keep running unless we add '[]'
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
+
+  return (
   <Provider store={store}>
     <Router>
       <Fragment>
@@ -25,6 +37,7 @@ const App = () => (
       </Fragment>
     </Router>
   </Provider>
-)
+  )
+}
 
 export default App;
