@@ -8,7 +8,6 @@ import Landing from './components/layout/Landing';
 import Navbar from './components/layout/Navbar';
 import store from './store';
 
-
 const App = () => (
   <Provider store={store}>
     <Router>
@@ -25,6 +24,5 @@ const App = () => (
     </Router>
   </Provider>
 )
-
 
 export default App;
