@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Fragment, useState } from 'react';
 
 export default function Register() {
@@ -12,12 +13,30 @@ export default function Register() {
     // handles input values and sets data in formData based on each input value type
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-    const onSubmit = e => {
+    const onSubmit = async e => {
         e.preventDefault();
         if(password !== password2){
             console.log('Passwords do not match')
         } else {
-            console.log(formData);
+            const newUser = {
+                name,
+                email,
+                password
+            }
+
+            try {
+                const config = {
+                    headers: {
+                        'Content-Type': 'Application/json'
+                    }
+                }
+
+                const body = JSON.stringify(newUser);
+                const res = await axios.post('/api/users', body, config);
+                console.log(res.data);
+            } catch (error) {
+                console.log(error.response.data);
+            }
         }
     };
 
