@@ -88,7 +88,8 @@ export const createProfile = (formData, history, edit = false) => async dispatch
             payload: res.data
         });
 
-        dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created'), 'success');
+        dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success'));
+
         if(!edit) {
             history.push('/dashboard');
         }
@@ -204,6 +205,7 @@ export const deleteEducation = id => async dispatch => {
 export const deleteAccount = () => async dispatch => {
     if(window.confirm('Are you sure? This can NOT be undone!')) {
         try {
+            await axios.delete('/api/profile');
             dispatch({ type: CLEAR_PROFILE });
             dispatch({ type: ACCOUNT_DELETED });
 
