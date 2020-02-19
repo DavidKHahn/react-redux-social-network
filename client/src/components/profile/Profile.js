@@ -9,7 +9,7 @@ const Profile = ({ match, getProfileById, profile: { profile, loading }, auth })
     useEffect(() => {
         // matches the id in the url
         getProfileById(match.params.id);
-    }, [getProfileById])
+    }, [getProfileById, match.params.id])
     return (
         <Fragment>
             {profile === null || loading ? <Spinner /> : <Fragment>
