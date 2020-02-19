@@ -35,7 +35,8 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 error: payload,
-                loading: false
+                loading: false,
+                profile: null // removes browsed user's profile from state
             };
         case CLEAR_PROFILE:
             return {
