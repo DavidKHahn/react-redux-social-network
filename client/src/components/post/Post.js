@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getPost } from '../../actions/post';
 import Spinner from '../layout/Spinner';
+import CommentForm from '../post/CommentForm';
 import PostItem from '../posts/PostItem';
 
 const Post = ({ getPost, post: { post, loading }, match }) => {
@@ -17,6 +18,7 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
         </Link>
     {/* showActions removes the buttons, likes added features */}
         <PostItem post={post} showActions={false} />
+        <CommentForm postId={post._id} />
     </Fragment>
 };
 
