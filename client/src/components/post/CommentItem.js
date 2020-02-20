@@ -27,7 +27,7 @@ const CommentItem = ({ postId, comment: { _id, text, name, avatar, user, date },
             {/* make sure auth is not loading and actual user is one who made the comment */}
             {!auth.loading && user === auth.user._id && (
                 <button
-                    onClick={() => deleteComment(postId, _id)}
+                    onClick={e => deleteComment(postId, _id)}
                     type="button"
                     className="btn btn-danger"
                 >
