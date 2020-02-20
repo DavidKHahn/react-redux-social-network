@@ -5,10 +5,9 @@ import { AUTH_ERROR, CLEAR_PROFILE, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, REGISTER_
 
 // Load User
 export const loadUser = () => async dispatch => {
-    if(localStorage.token) {
+    if (localStorage.token) {
         setAuthToken(localStorage.token);
     }
-
     try {
         const res = await axios.get('api/auth');
         dispatch({
@@ -43,7 +42,7 @@ export const register = ({ name, email, password }) => async dispatch => {
     } catch (error) {
         const errors = error.response.data.errors;
         // dispatches each error msg back onto client side with 'danger'
-        if(errors) {
+        if (errors) {
             errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
         }
         dispatch({
@@ -73,7 +72,7 @@ export const login = (email, password) => async dispatch => {
     } catch (error) {
         const errors = error.response.data.errors;
         // dispatches each error msg back onto client side with 'danger'
-        if(errors) {
+        if (errors) {
             errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
         }
         dispatch({
